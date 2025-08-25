@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "heroes",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "heroes",
+    "displayName": "Hero",
+    "description": "Hero sections for landing pages and marketing content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false,
+      "default": "#services"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": ["blue", "primary", "accent"],
+      "default": "primary",
+      "required": false
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "rating": {
+      "type": "component",
+      "repeatable": false,
+      "required": false,
+      "component": "shared.rating"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
