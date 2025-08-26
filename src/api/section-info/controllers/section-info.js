@@ -7,26 +7,32 @@ module.exports = factories.createCoreController(
     async findActive(ctx) {
       try {
         console.log("🔍 Buscando secciones info activas...");
-        
+
         const entities = await strapi.entityService.findMany(
           "api::section-info.section-info",
           {
             filters: { isActive: true },
             populate: ["image"],
             sort: { createdAt: "desc" },
-            publicationState: "live"
+            publicationState: "live",
           }
         );
 
-        console.log(`📊 Encontradas ${entities ? entities.length : 0} secciones activas`);
+        console.log(
+          `📊 Encontradas ${entities ? entities.length : 0} secciones activas`
+        );
 
         // Transformar y sanitizar respuesta
         const sanitizedEntities = entities
           ? await Promise.all(
               entities.map((entity) =>
-                strapi.entityService.findOne("api::section-info.section-info", entity.id, {
-                  populate: ["image"]
-                })
+                strapi.entityService.findOne(
+                  "api::section-info.section-info",
+                  entity.id,
+                  {
+                    populate: ["image"],
+                  }
+                )
               )
             )
           : [];
@@ -38,17 +44,16 @@ module.exports = factories.createCoreController(
               page: 1,
               pageSize: sanitizedEntities.length,
               pageCount: 1,
-              total: sanitizedEntities.length
-            }
-          }
+              total: sanitizedEntities.length,
+            },
+          },
         });
-
       } catch (error) {
         console.error("❌ Error en findActive section-info:", error);
         return ctx.badRequest("Error al obtener secciones info activas", {
-          details: error.message
+          details: error.message,
         });
       }
-    }
+    },
   })
 );
