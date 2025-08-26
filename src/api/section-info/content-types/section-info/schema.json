@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "section_infos",
+  "info": {
+    "singularName": "section-info",
+    "pluralName": "section-infos",
+    "displayName": "Section Info",
+    "description": "Componente de sección informativa con imagen, título, descripción y fortalezas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": false,
+      "default": "Learn more about us"
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false,
+      "default": "#about"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "strength1": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
+    },
+    "strength2": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
+    },
+    "strength3": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": ["white", "gray", "blue", "primary"],
+      "default": "white",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
