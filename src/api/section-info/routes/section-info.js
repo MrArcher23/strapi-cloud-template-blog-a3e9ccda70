@@ -1,6 +1,7 @@
 const { factories } = require("@strapi/strapi");
 
-module.exports = factories.createCoreRouter("api::section-info.section-info", {
+// Crear el router base
+const defaultRouter = factories.createCoreRouter("api::section-info.section-info", {
   config: {
     find: {
       auth: false,
@@ -13,9 +14,8 @@ module.exports = factories.createCoreRouter("api::section-info.section-info", {
   },
 });
 
-// Rutas personalizadas
-module.exports.routes = [
-  ...module.exports.routes,
+// Rutas personalizadas adicionales
+const customRoutes = [
   {
     method: "GET",
     path: "/section-infos/active",
@@ -26,3 +26,11 @@ module.exports.routes = [
     },
   },
 ];
+
+// Combinar rutas base con personalizadas
+module.exports = {
+  routes: [
+    ...defaultRouter.routes,
+    ...customRoutes,
+  ],
+};
