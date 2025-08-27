@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "headers",
+  "info": {
+    "singularName": "header",
+    "pluralName": "headers",
+    "displayName": "Header",
+    "description": "Website header configuration with company info, navigation, and contact details"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "companyName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "minLength": 2
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false,
+      "maxLength": 200,
+      "minLength": 5
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": false,
+      "maxLength": 20,
+      "minLength": 8
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true,
+      "default": "Get Quote",
+      "maxLength": 50,
+      "minLength": 2
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false,
+      "default": "/contact",
+      "maxLength": 200
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": ["blue", "primary", "white", "transparent"],
+      "default": "primary",
+      "required": true
+    },
+    "logoSrc": {
+      "type": "string",
+      "required": false,
+      "maxLength": 500
+    },
+    "logoAlt": {
+      "type": "string",
+      "required": false,
+      "maxLength": 100
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "companyName",
+      "required": false
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
