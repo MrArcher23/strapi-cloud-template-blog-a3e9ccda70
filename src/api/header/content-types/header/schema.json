@@ -52,12 +52,21 @@
     "logoSrc": {
       "type": "string",
       "required": false,
-      "maxLength": 500
+      "maxLength": 500,
+      "description": "External logo URL (SVG, PNG, JPG). Use this OR logoFile, not both."
+    },
+    "logoFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files"],
+      "description": "Upload logo file directly to Strapi. Supports SVG, PNG, JPG. Use this OR logoSrc."
     },
     "logoAlt": {
       "type": "string",
       "required": false,
-      "maxLength": 100
+      "maxLength": 100,
+      "description": "Alt text for logo (accessibility)"
     },
     "slug": {
       "type": "uid",
