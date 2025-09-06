@@ -12,21 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
-      "required": true,
-      "unique": false
-    },
     "companyName": {
       "type": "string",
       "required": true,
       "unique": false
     },
     "subtitle": {
-      "type": "text",
-      "required": false
-    },
-    "description": {
       "type": "text",
       "required": false
     },
@@ -55,7 +46,7 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "name"
+      "targetField": "companyName"
     },
     "isActive": {
       "type": "boolean",
