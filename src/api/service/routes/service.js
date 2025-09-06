@@ -1,16 +1,22 @@
-const { factories } = require("@strapi/strapi");
-
-// LECCIÓN APRENDIDA: Mantener rutas simples sin endpoints personalizados
-// Esto evita el error "Cannot read properties of undefined (reading 'kind')"
-module.exports = factories.createCoreRouter("api::service.service", {
-  config: {
-    find: {
-      auth: false,
-      middlewares: [],
+module.exports = {
+  routes: [
+    {
+      method: 'GET',
+      path: '/services/active',
+      handler: 'service.findActive',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
     },
-    findOne: {
-      auth: false,
-      middlewares: [],
-    },
-  },
-});
+    {
+      method: 'GET',
+      path: '/services/order/:order',
+      handler: 'service.findByOrder',
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    }
+  ],
+};

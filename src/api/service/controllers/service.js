@@ -1,28 +1,39 @@
-const { factories } = require("@strapi/strapi");
+'use strict';
 
-module.exports = factories.createCoreController(
-  "api::service.service",
-  ({ strapi }) => ({
-    // Método estándar - sin endpoints personalizados para evitar errores
-    // El frontend usará filtros estándar como:
-    // GET /api/services?filters[isActive][$eq]=true&sort=order:asc
+const { createCoreController } = require('@strapi/strapi').factories;
 
-    async find(ctx) {
-      try {
-        console.log("🔍 Obteniendo servicios...");
+module.exports = createCoreController('api::service.service', ({ strapi }) => ({
+  // Método para obtener servicios activos ordenados
+  async findActive(ctx) {
+    try {
+      const entity = await strapi.entityService.findMany('api::service.service', {
+        filters: { isActive: true },
+        sort: { order: 'asc' },
+        populate: ['image'],
+        limit: 4, // Máximo 4 servicios para la galería
+      });
 
-        // Llamar al método estándar del padre
-        const { data, meta } = await super.find(ctx);
+      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (err) {
+      return ctx.badRequest('Error al obtener servicios activos');
+    }
+  },
 
-        console.log(`📊 Servicios encontrados: ${data ? data.length : 0}`);
+  // Método para obtener servicios por orden específico
+  async findByOrder(ctx) {
+    const { order } = ctx.params;
+    
+    try {
+      const entity = await strapi.entityService.findMany('api::service.service', {
+        filters: { order, isActive: true },
+        populate: ['image'],
+      });
 
-        return { data, meta };
-      } catch (error) {
-        console.error("❌ Error en find services:", error);
-        return ctx.badRequest("Error al obtener servicios", {
-          details: error.message,
-        });
-      }
-    },
-  })
-);
+      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (err) {
+      return ctx.badRequest(`Error al obtener servicio con orden ${order}`);
+    }
+  }
+}));

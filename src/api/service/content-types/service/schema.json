@@ -5,50 +5,52 @@
     "singularName": "service",
     "pluralName": "services",
     "displayName": "Service",
-    "description": "Servicios que ofrece la empresa con ícono, título y descripción"
+    "description": "Servicios para la galería de construcción"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string",
       "required": true,
-      "maxLength": 255
+      "maxLength": 100
     },
     "description": {
       "type": "text",
-      "required": true
-    },
-    "svgIcon": {
-      "type": "text",
       "required": false
     },
-    "iconColor": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "overlayColor": {
       "type": "enumeration",
-      "enum": ["blue", "green", "yellow", "purple", "orange", "red"],
-      "default": "blue",
+      "enum": ["black", "blue", "green", "purple", "red", "yellow"],
+      "default": "black",
       "required": true
     },
-    "order": {
-      "type": "integer",
-      "default": 1,
-      "required": true
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
+    "link": {
+      "type": "string",
+      "required": false
     },
     "isActive": {
       "type": "boolean",
       "default": true,
       "required": true
     },
-    "featured": {
-      "type": "boolean",
-      "default": false,
-      "required": true
+    "order": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 4
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }
