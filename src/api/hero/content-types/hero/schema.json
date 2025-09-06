@@ -5,55 +5,62 @@
     "singularName": "hero",
     "pluralName": "heroes",
     "displayName": "Hero",
-    "description": "Hero sections for landing pages and marketing content"
+    "description": "Hero sections with flexible positioning and media backgrounds for SJT website"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": false
+    },
+    "companyName": {
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "subtitle": {
       "type": "text",
-      "required": true
-    },
-    "buttonText": {
-      "type": "string",
-      "required": true
-    },
-    "buttonLink": {
-      "type": "string",
-      "required": false,
-      "default": "#services"
-    },
-    "backgroundColor": {
-      "type": "enumeration",
-      "enum": ["blue", "primary", "accent"],
-      "default": "primary",
       "required": false
     },
-    "heroImage": {
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "showOverlay": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "titlePosition": {
+      "type": "enumeration",
+      "enum": ["bottom", "center"],
+      "default": "bottom",
+      "required": true
+    },
+    "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["videos"]
+    },
+    "backgroundImage": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": ["images"]
     },
-    "rating": {
-      "type": "component",
-      "repeatable": false,
-      "required": false,
-      "component": "shared.rating"
-    },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "name"
     },
     "isActive": {
       "type": "boolean",
-      "default": true
+      "default": false,
+      "required": true
     }
   }
 }

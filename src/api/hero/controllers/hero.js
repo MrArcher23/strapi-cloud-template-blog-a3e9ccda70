@@ -18,8 +18,8 @@ module.exports = factories.createCoreController(
             publishedAt: { $ne: null },
           },
           populate: {
-            heroImage: true,
-            rating: true,
+            backgroundVideo: true,
+            backgroundImage: true,
           },
           orderBy: { createdAt: "desc" },
         });
