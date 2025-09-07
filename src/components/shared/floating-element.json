@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_shared_floating_elements",
+  "info": {
+    "displayName": "Floating Element",
+    "description": "Elemento flotante para mostrar estadísticas o información destacada"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false
+    },
+    "svg": {
+      "type": "text",
+      "required": false
+    },
+    "bgColor": {
+      "type": "string",
+      "required": false,
+      "default": "bg-gray-900"
+    },
+    "textColor": {
+      "type": "string",
+      "required": false,
+      "default": "text-white"
+    }
+  }
+}

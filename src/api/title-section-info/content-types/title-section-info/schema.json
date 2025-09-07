@@ -1,0 +1,106 @@
+{
+  "kind": "collectionType",
+  "collectionName": "title_section_infos",
+  "info": {
+    "singularName": "title-section-info",
+    "pluralName": "title-section-infos",
+    "displayName": "Title Section Info",
+    "description": "Componente combinado de SectionTitle + SectionInfo2 para reutilizar en múltiples páginas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "identifier": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "highlightText": {
+      "type": "string",
+      "required": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "highlightColor": {
+      "type": "enumeration",
+      "enum": ["orange", "red", "blue", "green", "purple", "custom"],
+      "default": "blue",
+      "required": false
+    },
+    "customColor": {
+      "type": "string",
+      "required": false
+    },
+    "alignment": {
+      "type": "enumeration",
+      "enum": ["left", "center", "right"],
+      "default": "left",
+      "required": false
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": ["sm", "md", "lg", "xl"],
+      "default": "lg",
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": ["left", "right"],
+      "default": "right",
+      "required": false
+    },
+    "buttonText": {
+      "type": "string",
+      "required": false
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false
+    },
+    "floatingElement1": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.floating-element",
+      "required": false
+    },
+    "floatingElement2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.floating-element",
+      "required": false
+    },
+    "backgroundColor": {
+      "type": "string",
+      "required": false,
+      "default": "bg-white"
+    },
+    "containerClass": {
+      "type": "string",
+      "required": false
+    },
+    "sectionClass": {
+      "type": "string",
+      "required": false,
+      "default": "py-16"
+    },
+    "titleContainerClass": {
+      "type": "string",
+      "required": false,
+      "default": "mx-8 sm:mx-12 lg:mx-16 xl:mx-20 px-0 mb-12"
+    }
+  }
+}
