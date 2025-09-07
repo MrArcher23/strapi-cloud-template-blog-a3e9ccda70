@@ -25,6 +25,10 @@
       "type": "string",
       "required": true
     },
+    "titleSection": {
+      "type": "string",
+      "required": true
+    },
     "highlightColor": {
       "type": "enumeration",
       "enum": ["orange", "red", "blue", "green", "purple", "custom"],
