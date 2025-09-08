@@ -61,6 +61,10 @@
       "required": true,
       "allowedTypes": ["images"]
     },
+    "imageAlt": {
+      "type": "string",
+      "required": false
+    },
     "imagePosition": {
       "type": "enumeration",
       "enum": ["left", "right"],
@@ -86,25 +90,6 @@
       "repeatable": false,
       "component": "shared.floating-element",
       "required": false
-    },
-    "backgroundColor": {
-      "type": "string",
-      "required": false,
-      "default": "bg-white"
-    },
-    "containerClass": {
-      "type": "string",
-      "required": false
-    },
-    "sectionClass": {
-      "type": "string",
-      "required": false,
-      "default": "py-16"
-    },
-    "titleContainerClass": {
-      "type": "string",
-      "required": false,
-      "default": "mx-8 sm:mx-12 lg:mx-16 xl:mx-20 px-0 mb-12"
     }
   }
 }
