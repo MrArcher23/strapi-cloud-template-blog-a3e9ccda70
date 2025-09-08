@@ -72,6 +72,11 @@
       "required": false,
       "default": "Aspectos Destacados"
     },
+    "titleStats": {
+      "type": "string",
+      "required": false,
+      "default": "Datos del Proyecto"
+    },
     "categoryColor": {
       "type": "enumeration",
       "enum": [
