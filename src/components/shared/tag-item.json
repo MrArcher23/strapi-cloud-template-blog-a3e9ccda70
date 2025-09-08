@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_tag_items",
+  "info": {
+    "displayName": "Tag Item",
+    "description": "Etiqueta o tag para categorizar proyectos"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

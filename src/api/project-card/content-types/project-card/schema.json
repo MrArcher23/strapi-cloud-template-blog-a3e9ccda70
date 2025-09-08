@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_cards",
+  "info": {
+    "singularName": "project-card",
+    "pluralName": "project-cards",
+    "displayName": "Project Card",
+    "description": "Tarjetas de proyecto para mostrar en grids y listas de proyectos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "identifier": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "categoryColor": {
+      "type": "enumeration",
+      "enum": [
+        "var(--orange)",
+        "var(--green)",
+        "var(--blue)",
+        "var(--purple)",
+        "var(--red)",
+        "custom"
+      ],
+      "default": "var(--blue)",
+      "required": true
+    },
+    "customCategoryColor": {
+      "type": "string",
+      "required": false
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "imageAlt": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "client": {
+      "type": "string",
+      "required": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["completed", "in-progress", "upcoming"],
+      "default": "completed",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": false
+    },
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tag-item",
+      "required": false
+    }
+  }
+}
