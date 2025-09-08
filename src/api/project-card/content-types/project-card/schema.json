@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "identifier": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "title": {
       "type": "string",
       "required": true
