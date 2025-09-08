@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_showcases",
+  "info": {
+    "singularName": "project-showcase",
+    "pluralName": "project-showcases",
+    "displayName": "Project Showcase",
+    "description": "Componente para mostrar proyectos destacados con imagen hero, estadísticas y highlights"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "identifier": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "client": {
+      "type": "string",
+      "required": false
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "heroImageAlt": {
+      "type": "string",
+      "required": false
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.project-stat",
+      "required": false
+    },
+    "highlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.highlight-item",
+      "required": false
+    },
+    "titleHighlights": {
+      "type": "string",
+      "required": false,
+      "default": "Aspectos Destacados"
+    },
+    "categoryColor": {
+      "type": "enumeration",
+      "enum": [
+        "var(--orange)",
+        "var(--green)",
+        "var(--blue)",
+        "var(--purple)",
+        "var(--red)",
+        "custom"
+      ],
+      "default": "var(--blue)",
+      "required": true
+    },
+    "customCategoryColor": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

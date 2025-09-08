@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_highlight_items",
+  "info": {
+    "displayName": "Highlight Item",
+    "description": "Elemento destacado para mostrar en listas de características"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
