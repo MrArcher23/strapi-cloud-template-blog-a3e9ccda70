@@ -20,10 +20,6 @@
       "type": "string",
       "required": true
     },
-    "categoryColor": {
-      "type": "string",
-      "required": false
-    },
     "location": {
       "type": "string",
       "required": true
@@ -32,29 +28,15 @@
       "type": "string",
       "required": true
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images"]
-    },
     "description": {
       "type": "text",
       "required": true
-    },
-    "client": {
-      "type": "string",
-      "required": false
     },
     "status": {
       "type": "enumeration",
       "enum": ["completed", "in-progress", "upcoming"],
       "default": "completed",
       "required": true
-    },
-    "href": {
-      "type": "string",
-      "required": false
     }
   }
 }
